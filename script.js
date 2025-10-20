@@ -48,7 +48,7 @@ function Game(){
     for(let i = 0; i < 5; i++){
     playRound()}
     console.log('Juego Terminado')
-    console.log(`Marcador final → Humano: ${humanScore} | IA: ${computerScore}`)
+    console.log(`Marcador final Humano: ${humanScore} | IA: ${computerScore}`)
 
     if (humanScore > computerScore){
         return "Felicidades Has Ganado"
