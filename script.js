@@ -5,27 +5,37 @@ function getComputerChoice() {
   else return "piedra";
 }
 
-function jugar(human) {
-  const computer = getComputerChoice();
-  human = human.toLowerCase().trim();
+function getHumanChoice() {
+  let humanChoice = window.prompt();
+    if (humanChoice === "tijera") return "tijera";
+    else if (humanChoice === "piedra") return "piedra";
+    else return "papel";
+}
 
-  console.log(`💻 La IA eligió: ${computer}`);
-  console.log(`🧍 El humano eligió: ${human}`);
+function jugar() {
+  const computer = getComputerChoice();
+  const human = getHumanChoice();
+
+  console.log(`La IA eligió: ${computer}`);
+  console.log(`El humano eligió: ${human}`);
 
   let resultado;
 
   if (computer === human) {
-    resultado = "🤝 Empate";
+    resultado = "Empate";
   } else if (
     (human === "piedra" && computer === "tijera") ||
     (human === "papel" && computer === "piedra") ||
     (human === "tijera" && computer === "papel")
   ) {
-    resultado = `Gana Humano (${human} vence a ${IA})`;
+    resultado = `Gana Humano (${human} vence a ${computer})`;
   } else {
     resultado = `Gana IA (${computer} vence a ${human})`;
   }
 
   console.log(resultado);
-  return resultado;
+return resultado;
 }
+
+
+
