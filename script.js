@@ -1,7 +1,6 @@
-let humanScore = 0;
-let computerScore = 0;
 
 
+/* Computer Choice */
 function getComputerChoice() {
   let result = Math.floor(Math.random() * 3);
   if (result === 0) return "tijera";
@@ -9,6 +8,7 @@ function getComputerChoice() {
   else return "piedra";
 }
 
+/* Human Choice */
 function getHumanChoice() {
   let humanChoice = window.prompt("Elige: Piedra, Papel o Tijera").toLocaleLowerCase().trim();
     if (humanChoice === "tijera") return "tijera";
@@ -19,11 +19,18 @@ function getHumanChoice() {
 
 
 
+
+/* Play 5 Game and score*/
+function playGame(){
+let humanScore = 0;
+let computerScore = 0;
+ 
+
 function playRound() {
   const computer = getComputerChoice();
   const human = getHumanChoice();
 
-  console.log(`La IA eligió: ${computer}`);
+  console.log(`Computer eligió: ${computer}`);
   console.log(`El humano eligió: ${human}`);
 
   let resultado;
@@ -38,26 +45,29 @@ function playRound() {
     resultado =  `Gana Humano (${human} vence a ${computer})` ;
     humanScore++
   } else {
-    resultado =   `Gana IA (${computer} vence a ${human})`;
+    resultado =   `Gana Computer (${computer} vence a ${human})`;
     computerScore++
   }
     console.log(resultado)
-    return console.log("Human Score", humanScore ,"|","ComputerSocre",computerScore);
+    return console.log("Human Score", humanScore ,"|","Computer Score",computerScore);
 }
-function Game(){
+
+
+
     for(let i = 0; i < 5; i++){
     playRound()}
     console.log('Juego Terminado')
-    console.log(`Marcador final Humano: ${humanScore} | IA: ${computerScore}`)
+    console.log(`Marcador final Humano: ${humanScore} "|" Computer: ${computerScore}`)
 
     if (humanScore > computerScore){
         return "Felicidades Has Ganado"
     }
     else if (computerScore > humanScore){
-        return "Lociento ha Ganado Cumputer"
+        return "Loiento ha Ganado Cumputer"
     }
     else{
         return "HOOOO es un Empate"
     }
 }
 
+playGame()
