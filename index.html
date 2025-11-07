@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js">        
-    </script> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .img-size{
+            width: 200px;
+            height: 200px;
+            
+        }
+        .tijera, .piedra, .papel{
+            margin-left: 50px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        .actualizar{
+            width: 25px;
+            height: 25px;
+            
+            
+            
+        }
+        .h3b{
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+    </style>
     <title>Juego de Piedra Papel y Tijera</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>Bienvenidos al juego de Piedra, Papel y Tijeras</h1>
+    <h3>Elige una de las opciones para comenzar a jugar</h3>
+    <div class="h3b"><h3>Has click aqui para volver a Jugar</h3>
+    <button type="button"><img src="img/actualizar-flecha.png" class="actualizar" alt=""></button></div>
+    <button type="button" class="tijera"><img class="img-size" src="img/cortar-con-tijeras.png" alt=""></button>
+    <button type="button" class="piedra"> <img class="img-size" src="img/piedra.png" alt=""></button>
+    <button type="button" class="papel"><img class="img-size" src="img/panuelo-de-papel.png" alt=""> </button>
+
+    <div class="container"></div>
+    <script src="script.js"></script>
+  </body>
 </html>

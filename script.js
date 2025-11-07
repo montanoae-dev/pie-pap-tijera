@@ -1,73 +1,72 @@
-
-
-/* Computer Choice */
 function getComputerChoice() {
   let result = Math.floor(Math.random() * 3);
   if (result === 0) return "tijera";
   else if (result === 1) return "papel";
   else return "piedra";
 }
+const tijera = document.querySelector(".tijera");
+const piedra = document.querySelector(".piedra");
+const papel = document.querySelector(".papel");
+const actualizar = document.querySelector(".h3b")
+tijera.addEventListener("click", () => playRound("tijera"));
+piedra.addEventListener("click", () => playRound("piedra"));
+papel.addEventListener("click", () => playRound("papel"));
+actualizar.addEventListener("click", () => newPlay());
 
-/* Human Choice */
-function getHumanChoice() {
-  let humanChoice = window.prompt("Elige: Piedra, Papel o Tijera").toLocaleLowerCase().trim();
-    if (humanChoice === "tijera") return "tijera";
-    else if (humanChoice === "piedra") return "piedra";
-    else return "papel";
-}
-
-
-
-
-
-/* Play 5 Game and score*/
-function playGame(){
-let humanScore = 0;
-let computerScore = 0;
+ const computer = getComputerChoice();
+  let humanScore = 0;
+  let computerScore = 0;
+  const contenedor = document.querySelector(".container");
+  const paraElecion = document.createElement("p");
+  const paraResult = document.createElement("p");
+  const score = document.createElement("h1");
+function playRound(human) {
  
+  paraElecion.textContent = `Computer eligió: ${computer} -- El humano eligió: ${human}`;
 
-function playRound() {
-  const computer = getComputerChoice();
-  const human = getHumanChoice();
-
-  console.log(`Computer eligió: ${computer}`);
-  console.log(`El humano eligió: ${human}`);
-
+  contenedor.appendChild(score);
+ 
   let resultado;
-
-  if (computer === human) {
+   if (computer === human) {
     resultado = "Empate";
   } else if (
     (human === "piedra" && computer === "tijera") ||
     (human === "papel" && computer === "piedra") ||
     (human === "tijera" && computer === "papel")
   ) {
-    resultado =  `Gana Humano (${human} vence a ${computer})` ;
-    humanScore++
+    resultado = `Gana Humano (${human} vence a ${computer})`;
+    humanScore++;
   } else {
-    resultado =   `Gana Computer (${computer} vence a ${human})`;
-    computerScore++
+    resultado = `Gana Computer (${computer} vence a ${human})`;
+    computerScore++;
   }
-    console.log(resultado)
-    return console.log("Human Score", humanScore ,"|","Computer Score",computerScore);
+  contenedor.appendChild(paraElecion);
+  paraResult.textContent = `Resultado: ${resultado}`;
+  contenedor.appendChild(paraResult);
+  score.textContent = `Human Score: ${humanScore} | Computer Score: ${computerScore}`;
+  winner()
 }
 
-
-
-    for(let i = 0; i < 5; i++){
-    playRound()}
-    console.log('Juego Terminado')
-    console.log(`Marcador final Humano: ${humanScore} "|" Computer: ${computerScore}`)
-
-    if (humanScore > computerScore){
-        return "Felicidades Has Ganado"
-    }
-    else if (computerScore > humanScore){
-        return "Loiento ha Ganado Cumputer"
-    }
-    else{
-        return "HOOOO es un Empate"
-    }
+function winner(){
+  if (humanScore === 5){
+    alert("Felicidades has Ganado")
+    stop();
+  }
+  else if (computerScore === 5){
+  alert("Lo siento ha Ganado la Computadora")
+stop();}
+}
+function stop(){
+  tijera.disabled = true;
+  piedra.disabled = true;
+  papel.disabled = true;
 }
 
-playGame()
+function newPlay(){
+  humanScore = 0;
+  computerScore = 0;
+  tijera.disabled = false;
+  piedra.disabled = false;
+  papel.disabled = false;
+
+}
