@@ -1,5 +1,6 @@
 function getComputerChoice() {
   let result = Math.floor(Math.random() * 3);
+  console.log(result)
   if (result === 0) return "tijera";
   else if (result === 1) return "papel";
   else return "piedra";
@@ -13,7 +14,7 @@ piedra.addEventListener("click", () => playRound("piedra"));
 papel.addEventListener("click", () => playRound("papel"));
 actualizar.addEventListener("click", () => newPlay());
 
- const computer = getComputerChoice();
+ 
   let humanScore = 0;
   let computerScore = 0;
   const contenedor = document.querySelector(".container");
@@ -21,7 +22,8 @@ actualizar.addEventListener("click", () => newPlay());
   const paraResult = document.createElement("p");
   const score = document.createElement("h1");
 function playRound(human) {
- 
+   const computer = getComputerChoice();
+   console.log(computer)
   paraElecion.textContent = `Computer eligió: ${computer} -- El humano eligió: ${human}`;
 
   contenedor.appendChild(score);
